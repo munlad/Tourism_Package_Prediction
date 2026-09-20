@@ -50,6 +50,12 @@ jobs:
             ytrain.csv
             ytest.csv
 
+- name: Sync with latest main branch
+  run: |
+    git pull --rebase origin main
+
+    git push origin HEAD:main
+
   model-traning:
     needs: data-prep
     runs-on: ubuntu-latest
